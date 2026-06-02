@@ -1,0 +1,11 @@
+# Kompilačné výstupy a binárky
+isa-top
+*.o
+*.tar
+
+# Skryté zložky vývojových prostredí (ak nejaké používaš)
+.vscode/
+.idea/
+
+# Systémové súbory
+.DS_Store

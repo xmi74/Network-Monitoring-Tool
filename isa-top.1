@@ -1,0 +1,45 @@
+.TH ISA-TOP 1 "November 2024" "isa-top Manual"
+.SH NAME
+isa-top \- Network flow monitoring tool
+
+.SH SYNOPSIS
+.B isa-top
+\-i INTERFACE [\-t TIME] [\-s SORT_METHOD]
+
+.SH DESCRIPTION
+isa-top is a network monitoring tool that displays real-time statistics for network connections on specified interface. Users can view rates of received and transmitted data for up to 10 most active current connections. Connections are implicitly sorted in descending order by bits per second and statistics are updated each second.
+
+.SH OPTIONS
+.TP
+.B \-i INTERFACE
+\fBRequired\fR. Specifies the network interface for capturing traffic.
+.TP
+.B \-t TIME
+\fBOptional\fR. Sets the time interval (in seconds) for updating statistics. Acceptable values are integers between 1 and 100. Default is \fB1 second\fR.
+.TP
+.B \/s SORT_METHOD
+\fBOptional\fR. Defines measurement, upon which displayed connections will be sorted:
+.RS
+.IP \fBb\fR 
+Sort by bits per second (default).
+.IP \fBp\fR 
+Sort by packets per second.
+.RE
+
+.SH EXAMPLES
+.TP
+Monitor traffic on interface \fBenp0s3\fR with default settings:
+.B
+sudo ./isa-top -i enp0s3
+.TP
+Monitor traffic on interface \fBenp0s3\fR with updates every 2 seconds:
+.B
+sudo ./isa-top -i enp0s3 -t 2
+.TP
+Monitor traffic on interface \fBenp0s3\fR, sorting by packets per second:
+.B
+sudo ./isa-top -i enp0s3 -s p
+
+.SH AUTHOR
+Igor Mikula (xmikul74)
+
